@@ -4,6 +4,11 @@
     <title>Resistor Calculator</title>
     <meta charset="utf-8" />
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        path.domain {
+            stroke: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,15 +19,38 @@
 
         var resistorBodyShape = [
             { a: 2, b: 2 },
-            { a: 1, b: 4 },
-            { a: 1, b: 6 },
-            { a: 2, b: 7 },
-            { a: 2, b: 15 },
-            { a: 1, b: 16 },
-            { a: 1, b: 19 },
-            { a: 2, b: 20 },
+            { a: 3, b: 3 },
+            { a: 6, b: 3 },
+            { a: 7, b: 2 },
+            { a: 7, b: 2 },
         ];
 
+        var xScale = d3.scaleLinear().domain([0, 25]).range([20, 470]);
+        var yScale = d3.scaleLinear().domain([-4, 4]).range([480, 20]);
+
+        var xAxis = d3.axisBottom()
+            .scale(xScale)
+            .tickSize(480)
+            .ticks(22);
+
+        var yAxis = d3.axisRight()
+            .scale(yScale)
+            .tickSize(480)
+            .ticks(9);
+
+        d3.select("svg").append("g").attr("id", "xAxisG").call(xAxis);
+        d3.select("svg").append("g").attr("id", "yAxisG").call(yAxis);
+
+        var shapeLine = d3.line()
+            .x(d => xScale(d.a))
+            .y(d => yScale(d.b));
+
+        d3.select("svg")
+            .append("path")
+            .attr("d", shapeLine(resistorBodyShape) + "Z")
+            .attr("fill", "yellow")
+            .attr("stroke", "red")
+            .attr("stroke-width", 2);
     </script>
 </body>
 
