@@ -33,8 +33,255 @@
     <div>
         <svg style="width:500px;height:220px" />
     </div>
-    <div id="controls"></div>
+
+    <div id="controls">
+        <div>
+            <label for="resistorBands">Number of bands:</label>
+            <select name="resistorBands" id="resistorBands">
+                <option value="4" onclick="NumberOfBandSelection(4)">4 Bands</option>
+                <option value="5" onclick="NumberOfBandSelection(5)">5 Bands</option>
+                <option value="6" onclick="NumberOfBandSelection(6)">6 Bands</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <label id="band1DropDownLabel" for="band1DropDown">Band 1:</label>
+            <select name="band1DropDown" id="band1DropDown">
+                <option value=""
+                    onclick="new function(){d3.select('#band1DropDown').style('background', 'none').style('color', 'black');}">
+                </option>
+                <option style="background:Black;color:white;" value="0"
+                    onclick="SelectBand(0,'#band1DropDown','#band1')">0 Black</option>
+                <option style="background:Brown;color:white;" value="1"
+                    onclick="SelectBand(1,'#band1DropDown','#band1')">1 Brown</option>
+                <option style="background:Red;color:white;" value="2" 
+                    onclick="SelectBand(2,'#band1DropDown','#band1')">2 Red</option>
+                <option style="background:Orange;color:Black;" value="3"
+                    onclick="SelectBand(3,'#band1DropDown','#band1')">3 Orange</option>
+                <option style="background:Yellow;color:Black;" value="4"
+                    onclick="SelectBand(4,'#band1DropDown','#band1')">4 Yellow</option>
+                <option style="background:Green;color:White;" value="5"
+                    onclick="SelectBand(5,'#band1DropDown','#band1')">5 Green</option>
+                <option style="background:Blue;color:White;" value="6"
+                    onclick="SelectBand(6,'#band1DropDown','#band1')">6 Blue</option>
+                <option style="background:Violet;color:Black;" value="7"
+                    onclick="SelectBand(7,'#band1DropDown','#band1')">7 Violet</option>
+                <option style="background:Gray;color:White;" value="8"
+                    onclick="SelectBand(8,'#band1DropDown','#band1')">8 Gray</option>
+                <option style="background:White;color:Black;" value="9"
+                    onclick="SelectBand(9,'#band1DropDown','#band1')">9 White</option>
+            </select>
+
+            <label id="band2DropDownLabel" for="band2DropDown">Band 2:</label>
+            <select name="band2DropDown" id="band2DropDown">
+                <option value=""
+                    onclick="new function(){d3.select('#band2DropDown').style('background', 'none').style('color', 'black');}">
+                </option>
+                <option style="background:Black;color:white;" value="0"
+                    onclick="SelectBand(0,'#band2DropDown','#band2')">0 Black</option>
+                <option style="background:Brown;color:white;" value="1"
+                    onclick="SelectBand(1,'#band2DropDown','#band2')">1 Brown</option>
+                <option style="background:Red;color:white;" value="2"
+                    onclick="SelectBand(2,'#band2DropDown','#band2')">2 Red</option>
+                <option style="background:Orange;color:Black;" value="3"
+                    onclick="SelectBand(3,'#band2DropDown','#band2')">3 Orange</option>
+                <option style="background:Yellow;color:Black;" value="4"
+                    onclick="SelectBand(4,'#band2DropDown','#band2')">4 Yellow</option>
+                <option style="background:Green;color:White;" value="5"
+                    onclick="SelectBand(5,'#band2DropDown','#band2')">5 Green</option>
+                <option style="background:Blue;color:White;" value="6"
+                    onclick="SelectBand(6,'#band2DropDown','#band2')">6 Blue</option>
+                <option style="background:Violet;color:Black;" value="7"
+                    onclick="SelectBand(7,'#band2DropDown','#band2')">7 Violet</option>
+                <option style="background:Gray;color:White;" value="8"
+                    onclick="SelectBand(8,'#band2DropDown','#band2')">8 Gray</option>
+                <option style="background:White;color:Black;" value="9"
+                    onclick="SelectBand(9,'#band2DropDown','#band2')">9 White</option>
+            </select>
+
+            <label id="band3DropDownLabel" for="band3DropDown">Band 3:</label>
+            <select name="band3DropDown" id="band3DropDown">
+                <option value=""
+                    onclick="new function(){d3.select('#band3DropDown').style('background', 'none').style('color', 'black');}">
+                </option>
+                <option style="background:Black;color:white;" value="0"
+                    onclick="SelectBand(0,'#band3DropDown','#band3')">0 Black</option>
+                <option style="background:Brown;color:white;" value="1"
+                    onclick="SelectBand(1,'#band3DropDown','#band3')">1 Brown</option>
+                <option style="background:Red;color:white;" value="2" 
+                    onclick="SelectBand(2,'#band3DropDown','#band3')">2 Red</option>
+                <option style="background:Orange;color:Black;" value="3"
+                    onclick="SelectBand(3,'#band3DropDown','#band3')">3 Orange</option>
+                <option style="background:Yellow;color:Black;" value="4"
+                    onclick="SelectBand(4,'#band3DropDown','#band3')">4 Yellow</option>
+                <option style="background:Green;color:White;" value="5"
+                    onclick="SelectBand(5,'#band3DropDown','#band3')">5 Green</option>
+                <option style="background:Blue;color:White;" value="6"
+                    onclick="SelectBand(6,'#band3DropDown','#band3')">6 Blue</option>
+                <option style="background:Violet;color:Black;" value="7"
+                    onclick="SelectBand(7,'#band3DropDown','#band3')">7 Violet</option>
+                <option style="background:Gray;color:White;" value="8"
+                    onclick="SelectBand(8,'#band3DropDown','#band3')">8 Gray</option>
+                <option style="background:White;color:Black;" value="9"
+                    onclick="SelectBand(9,'#band3DropDown','#band3')">9 White</option>
+            </select>
+
+            <label id="multiplierDropDownLabel" for="multiplierDropDown">Multiplier:</label>
+            <select name="multiplierDropDown" id="multiplierDropDown">
+                <option value=""
+                    onclick="new function(){d3.select('#multiplierDropDown').style('background', 'none').style('color', 'black');}">
+                </option>
+                <option style="background:Black;color:white;" value="0">Black x1Ω</option>
+                <option style="background:brown;color:white;" value="0">Brown x10Ω</option>
+                <option style="background:red;color:white;" value="0">Red x100Ω</option>
+                <option style="background:orange;color:black;" value="0">Orange x1kΩ</option>
+                <option style="background:yellow;color:black;" value="0">Yellow x10kΩ</option>
+                <option style="background:green;color:white;" value="0">Green x100kΩ</option>
+                <option style="background:blue;color:white;" value="0">Blue x1MΩ</option>
+                <option style="background:violet;color:black;" value="0">Violet x10MΩ</option>
+                <option style="background:gray;color:white;" value="0">Grey x100MΩ</option>
+                <option style="background:white;color:black;" value="0">White x1GΩ</option>
+                <option style="background:gold;color:black;" value="0">Gold x0.1Ω</option>
+                <option style="background:silver;color:black;" value="0">Silver x0.01Ω</option>
+            </select>
+
+            <label id="toleranceDropDownLabel" for="toleranceDropDown">Tolerance:</label>
+            <select name="toleranceDropDown" id="toleranceDropDown">
+                <option value=""
+                    onclick="new function(){d3.select('#toleranceDropDown').style('background', 'none').style('color', 'black');}">
+                </option>
+                <option style="background:brown;color:white;" value="0">Brown ±1%</option>
+                <option style="background:red;color:white;" value="0">Red ±2%</option>
+                <option style="background:green;color:white;" value="0">Green ±0.5%</option>
+                <option style="background:blue;color:white;" value="0">Blue ±0.25%</option>
+                <option style="background:violet;color:black;" value="0">Violet ±0.1%</option>
+                <option style="background:gray;color:white;" value="0">Gray ±0.05%</option>
+                <option style="background:gold;color:black;" value="0">Gold ±5%</option>
+                <option style="background:silver;color:black;" value="0">Silver ±10%</option>
+            </select>
+
+            <label id="tempCoDropDownLabel" for="tempCoDropDown">Temperature Coefficient:</label>
+            <select name="tempCoDropDown" id="tempCoDropDown">
+                <option value=""
+                    onclick="new function(){d3.select('#tempCoDropDown').style('background', 'none').style('color', 'black');}">
+                </option>
+                <option style="background:brown;color:white;" value="0">Brown 100ppm</option>
+                <option style="background:red;color:white;" value="0">Red 50ppm</option>
+                <option style="background:orange;color:white;" value="0">Orange 15ppm</option>
+                <option style="background:yellow;color:black;" value="0">Yellow 25ppm</option>
+                <option style="background:blue;color:white;" value="0">Blue 10ppm</option>
+                <option style="background:violet;color:black;" value="0">Violet 5ppm</option>
+            </select>
+        </div>
+
+    </div>
+
     <script>
+
+        function NumberOfBandSelection(number) {
+            switch (number) {
+                case 4:
+                    d3.select("#band3").style("stroke", "none");
+                    d3.select("#band6").style("stroke", "none");
+
+                    d3.select("#band3DropDown").attr("hidden", true);
+                    d3.select("#band3DropDownLabel").attr("hidden", true);
+                    d3.select("#tempCoDropDown").attr("hidden", true);
+                    d3.select("#tempCoDropDownLabel").attr("hidden", true);
+
+                    // Move Band 5 to end of resistor
+                    d3.select("#band5")
+                        .attr("x1", xScale(18) + 8)
+                        .attr("x2", xScale(18) + 8)
+                        .attr("y1", yScale(3))
+                        .attr("y2", yScale(-3));
+
+                    break;
+                case 5:
+                    d3.select("#band3").style("stroke", "black");
+                    d3.select("#band6").style("stroke", "none");
+
+                    d3.select("#band3DropDown").attr("hidden", null);
+                    d3.select("#band3DropDownLabel").attr("hidden", null);
+                    
+                    d3.select("#tempCoDropDown").attr("hidden", true);
+                    d3.select("#tempCoDropDownLabel").attr("hidden", true);
+
+                    d3.select("#band5")
+                    .attr("x1", xScale(18) + 8)
+                    .attr("x2", xScale(18) + 8)
+                    .attr("y1", yScale(3))
+                    .attr("y2", yScale(-3));
+
+                    break;
+                case 6:
+                    d3.select("#band3").style("stroke", "black");
+                    d3.select("#band6").style("stroke", "black");
+
+                    d3.select("#band3DropDown").attr("hidden", null);
+                    d3.select("#band3DropDownLabel").attr("hidden", null);
+                    d3.select("#tempCoDropDown").attr("hidden", null);
+                    d3.select("#tempCoDropDownLabel").attr("hidden", null);
+
+                    // Move Band 5 to before the end of resistor
+                    d3.select("#band5")
+                        .attr("x1", xScale(14) + 8)
+                        .attr("x2", xScale(14) + 8)
+                        .attr("y1", yScale(2))
+                        .attr("y2", yScale(-2));
+
+                    break;
+            };
+        }
+
+        function setBandColor(band, color) {
+            d3.select(`${band}`).style("stroke", color);
+        }
+
+        function SelectBand(selection, id, band) {
+            switch (selection) {
+                case 0:
+                    d3.select(`${id}`).style("background", "black").style("color", "white");
+                    setBandColor(band, "black");
+                    break;
+                case 1:
+                    d3.select(`${id}`).style("background", "brown").style("color", "white");
+                    setBandColor(band, "brown");
+                    break;
+                case 2:
+                    d3.select(`${id}`).style("background", "red").style("color", "white");
+                    setBandColor(band, "red");
+                    break;
+                case 3:
+                    d3.select(`${id}`).style("background", "orange").style("color", "black");
+                    setBandColor(band, "orange");
+                    break;
+                case 4:
+                    d3.select(`${id}`).style("background", "yellow").style("color", "black");
+                    setBandColor(band, "yellow");
+                    break;
+                case 5:
+                    d3.select(`${id}`).style("background", "green").style("color", "white");
+                    setBandColor(band, "green");
+                    break;
+                case 6:
+                    d3.select(`${id}`).style("background", "blue").style("color", "white");
+                    setBandColor(band, "blue");
+                    break;
+                case 7:
+                    d3.select(`${id}`).style("background", "violet").style("color", "black");
+                    setBandColor(band, "violet");
+                    break;
+                case 8:
+                    d3.select(`${id}`).style("background", "gray").style("color", "white");
+                    setBandColor(band, "gray");
+                    break;
+                case 9:
+                    d3.select(`${id}`).style("background", "white").style("color", "black");
+                    setBandColor(band, "white");
+                    break;
+            };
+        }
 
         var resistorBodyShape = [
             { a: 1, b: 2 },
@@ -62,8 +309,6 @@
 
         //d3.select("svg").append("g").attr("id", "xAxisG").call(xAxis);
         //d3.select("svg").append("g").attr("id", "yAxisG").call(yAxis);
-
-        // TODO: Figure out if the curve should be kept, is it possible to draw a rect or something within the lines?
 
         // Wire
         d3.select("svg")
@@ -96,7 +341,8 @@
             .attr("y1", yScale(3))
             .attr("y2", yScale(-3))
             .style("stroke", "brown")
-            .style("stroke-width", 16);
+            .style("stroke-width", 16)
+            .attr("id", "band1");
 
         // Band 2
         d3.select("svg")
@@ -106,7 +352,8 @@
             .attr("y1", yScale(2))
             .attr("y2", yScale(-2))
             .style("stroke", "white")
-            .style("stroke-width", 16);
+            .style("stroke-width", 16)
+            .attr("id", "band2");
 
         // Band 3
         d3.select("svg")
@@ -116,7 +363,8 @@
             .attr("y1", yScale(2))
             .attr("y2", yScale(-2))
             .style("stroke", "silver")
-            .style("stroke-width", 16);
+            .style("stroke-width", 16)
+            .attr("id", "band3");
 
         // Band 4
         d3.select("svg")
@@ -126,7 +374,8 @@
             .attr("y1", yScale(2))
             .attr("y2", yScale(-2))
             .style("stroke", "gold")
-            .style("stroke-width", 16);
+            .style("stroke-width", 16)
+            .attr("id", "band4");
 
         // Band 5
         d3.select("svg")
@@ -136,7 +385,8 @@
             .attr("y1", yScale(2))
             .attr("y2", yScale(-2))
             .style("stroke", "red")
-            .style("stroke-width", 16);
+            .style("stroke-width", 16)
+            .attr("id", "band5");
 
         // Band 6
         d3.select("svg")
@@ -146,59 +396,8 @@
             .attr("y1", yScale(3))
             .attr("y2", yScale(-3))
             .style("stroke", "yellow")
-            .style("stroke-width", 16);
-
-        var basicBandItems = [
-            "Black 0",
-            "Brown 1",
-            "Red 2",
-            "Orange 3",
-            "Yellow 4",
-            "Green 5",
-            "Blue 6",
-            "Violet 7",
-            "Gray 8",
-            "White 9"
-        ];
-
-        var band1Items = basicBandItems;
-        var band2Items = basicBandItems;
-        var band3Items = basicBandItems;
-
-        var multiplierBandItems = [
-            "Black x1Ω",
-            "Brown x10Ω",
-            "Red x100Ω",
-            "Orange x1kΩ",
-            "Yellow x10kΩ",
-            "Green x100kΩ",
-            "Blue x1MΩ",
-            "Violet x10MΩ",
-            "Grey x100MΩ",
-            "White x1GΩ",
-            "Gold x0.1Ω",
-            "Silver x0.01Ω"
-        ];
-
-        var toleranceBandItems = [
-            "Brown ±1%",
-            "Red ±2%",
-            "Green ±0.5%",
-            "Blue ±0.25%",
-            "Violet ±0.1%",
-            "Grey ±0.05%",
-            "Gold ±5%",
-            "Silver ±10%"
-        ];
-
-        var temperatureCoefficientBandItems = [
-            "Brown 100ppm",
-            "Red 50ppm",
-            "Orange 15ppm",
-            "Yellow 25ppm",
-            "Blue 10ppm",
-            "Violet 5ppm"
-        ];
+            .style("stroke-width", 16)
+            .attr("id", "band6");
 
         function OhmUnits(amount) {
             var result = "";
