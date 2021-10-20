@@ -47,6 +47,8 @@
 
         // TODO: Figure out if the curve should be kept, is it possible to draw a rect or something within the lines?
 
+
+        // Wire
         d3.select("svg")
             .append("line")
             .attr("x1", xScale(0))
@@ -61,13 +63,67 @@
             .y0(d => yScale(d.b))
             .y1(d => yScale(-d.b)).curve(d3.curveCardinal);
 
+        // Resistor body
         d3.select("svg")
             .append("path")
             .attr("d", shapeArea(resistorBodyShape))
-            .attr("fill", "#d1c7c7")
+            .attr("fill", "lavender")
             .attr("stroke", "black")
             .attr("stroke-width", 2);
 
+        d3.select("svg")
+            .append("line")
+            .attr("x1", xScale(3) + 8)
+            .attr("x2", xScale(3) + 8)
+            .attr("y1", yScale(3))
+            .attr("y2", yScale(-3))
+            .style("stroke", "brown")
+            .style("stroke-width", 16);
+
+        d3.select("svg")
+            .append("line")
+            .attr("x1", xScale(7) + 8)
+            .attr("x2", xScale(7) + 8)
+            .attr("y1", yScale(2))
+            .attr("y2", yScale(-2))
+            .style("stroke", "white")
+            .style("stroke-width", 16);
+
+        d3.select("svg")
+            .append("line")
+            .attr("x1", xScale(9) + 8)
+            .attr("x2", xScale(9) + 8)
+            .attr("y1", yScale(2))
+            .attr("y2", yScale(-2))
+            .style("stroke", "silver")
+            .style("stroke-width", 16);
+
+        d3.select("svg")
+            .append("line")
+            .attr("x1", xScale(11) + 8)
+            .attr("x2", xScale(11) + 8)
+            .attr("y1", yScale(2))
+            .attr("y2", yScale(-2))
+            .style("stroke", "gold")
+            .style("stroke-width", 16);
+
+        d3.select("svg")
+            .append("line")
+            .attr("x1", xScale(14) + 8)
+            .attr("x2", xScale(14) + 8)
+            .attr("y1", yScale(2))
+            .attr("y2", yScale(-2))
+            .style("stroke", "red")
+            .style("stroke-width", 16);
+
+        d3.select("svg")
+            .append("line")
+            .attr("x1", xScale(18) + 8)
+            .attr("x2", xScale(18) + 8)
+            .attr("y1", yScale(3))
+            .attr("y2", yScale(-3))
+            .style("stroke", "yellow")
+            .style("stroke-width", 16);
 
     </script>
 </body>
