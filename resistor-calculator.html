@@ -42,8 +42,19 @@
             .tickSize(480)
             .ticks(9);
 
-        d3.select("svg").append("g").attr("id", "xAxisG").call(xAxis);
-        d3.select("svg").append("g").attr("id", "yAxisG").call(yAxis);
+        //d3.select("svg").append("g").attr("id", "xAxisG").call(xAxis);
+        //d3.select("svg").append("g").attr("id", "yAxisG").call(yAxis);
+
+        // TODO: Figure out if the curve should be kept, is it possible to draw a rect or something within the lines?
+
+        d3.select("svg")
+            .append("line")
+            .attr("x1", xScale(0))
+            .attr("x2", xScale(22))
+            .attr("y1", yScale(0))
+            .attr("y2", yScale(0))
+            .style("stroke", "black")
+            .style("stroke-width", 16);
 
         var shapeArea = d3.area()
             .x(d => xScale(d.a))
@@ -53,9 +64,11 @@
         d3.select("svg")
             .append("path")
             .attr("d", shapeArea(resistorBodyShape))
-            .attr("fill", "yellow")
-            .attr("stroke", "red")
+            .attr("fill", "#d1c7c7")
+            .attr("stroke", "black")
             .attr("stroke-width", 2);
+
+
     </script>
 </body>
 
