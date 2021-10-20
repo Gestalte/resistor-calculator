@@ -3,7 +3,8 @@
 <head>
     <title>Resistor Calculator</title>
     <meta charset="utf-8" />
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <script src="d3.min.js"></script>
     <style>
         path.domain {
             stroke: none;
@@ -13,24 +14,27 @@
 
 <body>
     <div>
-        <svg style="width:500px;height:500px" />
+        <svg style="width:500px;height:220px" />
     </div>
     <script>
 
         var resistorBodyShape = [
-            { a: 2, b: 2 },
-            { a: 3, b: 3 },
-            { a: 6, b: 3 },
+            { a: 1, b: 2 },
+            { a: 2, b: 3 },
+            { a: 5, b: 3 },
             { a: 7, b: 2 },
-            { a: 7, b: 2 },
+            { a: 15, b: 2 },
+            { a: 17, b: 3 },
+            { a: 20, b: 3 },
+            { a: 21, b: 2 },
         ];
 
-        var xScale = d3.scaleLinear().domain([0, 25]).range([20, 470]);
-        var yScale = d3.scaleLinear().domain([-4, 4]).range([480, 20]);
+        var xScale = d3.scaleLinear().domain([0, 22]).range([20, 480]);
+        var yScale = d3.scaleLinear().domain([-4, 4]).range([200, 20]);
 
         var xAxis = d3.axisBottom()
             .scale(xScale)
-            .tickSize(480)
+            .tickSize(200)
             .ticks(22);
 
         var yAxis = d3.axisRight()
@@ -41,13 +45,14 @@
         d3.select("svg").append("g").attr("id", "xAxisG").call(xAxis);
         d3.select("svg").append("g").attr("id", "yAxisG").call(yAxis);
 
-        var shapeLine = d3.line()
+        var shapeArea = d3.area()
             .x(d => xScale(d.a))
-            .y(d => yScale(d.b));
+            .y0(d => yScale(d.b))
+            .y1(d => yScale(-d.b)).curve(d3.curveCardinal);
 
         d3.select("svg")
             .append("path")
-            .attr("d", shapeLine(resistorBodyShape) + "Z")
+            .attr("d", shapeArea(resistorBodyShape))
             .attr("fill", "yellow")
             .attr("stroke", "red")
             .attr("stroke-width", 2);
