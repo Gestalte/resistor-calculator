@@ -3,11 +3,28 @@
 <head>
     <title>Resistor Calculator</title>
     <meta charset="utf-8" />
-    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-    <script src="d3.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!-- <script src="d3.min.js"></script> -->
     <style>
         path.domain {
             stroke: none;
+        }
+
+        #infobox {
+            position: fixed;
+            left: 500px;
+            top: 50px;
+            z-index: 1;
+            background: white;
+            border: 1px black solid;
+        }
+
+        tr {
+            border: 1px gray solid;
+        }
+
+        td.data {
+            font-weight: 900;
         }
     </style>
 </head>
@@ -16,6 +33,7 @@
     <div>
         <svg style="width:500px;height:220px" />
     </div>
+    <div id="controls"></div>
     <script>
 
         var resistorBodyShape = [
@@ -47,7 +65,6 @@
 
         // TODO: Figure out if the curve should be kept, is it possible to draw a rect or something within the lines?
 
-
         // Wire
         d3.select("svg")
             .append("line")
@@ -71,6 +88,7 @@
             .attr("stroke", "black")
             .attr("stroke-width", 2);
 
+        // Band 1
         d3.select("svg")
             .append("line")
             .attr("x1", xScale(3) + 8)
@@ -80,6 +98,7 @@
             .style("stroke", "brown")
             .style("stroke-width", 16);
 
+        // Band 2
         d3.select("svg")
             .append("line")
             .attr("x1", xScale(7) + 8)
@@ -89,6 +108,7 @@
             .style("stroke", "white")
             .style("stroke-width", 16);
 
+        // Band 3
         d3.select("svg")
             .append("line")
             .attr("x1", xScale(9) + 8)
@@ -98,6 +118,7 @@
             .style("stroke", "silver")
             .style("stroke-width", 16);
 
+        // Band 4
         d3.select("svg")
             .append("line")
             .attr("x1", xScale(11) + 8)
@@ -107,6 +128,7 @@
             .style("stroke", "gold")
             .style("stroke-width", 16);
 
+        // Band 5
         d3.select("svg")
             .append("line")
             .attr("x1", xScale(14) + 8)
@@ -116,6 +138,7 @@
             .style("stroke", "red")
             .style("stroke-width", 16);
 
+        // Band 6
         d3.select("svg")
             .append("line")
             .attr("x1", xScale(18) + 8)
@@ -124,6 +147,79 @@
             .attr("y2", yScale(-3))
             .style("stroke", "yellow")
             .style("stroke-width", 16);
+
+        var basicBandItems = [
+            "Black 0",
+            "Brown 1",
+            "Red 2",
+            "Orange 3",
+            "Yellow 4",
+            "Green 5",
+            "Blue 6",
+            "Violet 7",
+            "Gray 8",
+            "White 9"
+        ];
+
+        var band1Items = basicBandItems;
+        var band2Items = basicBandItems;
+        var band3Items = basicBandItems;
+
+        var multiplierBandItems = [
+            "Black x1Ω",
+            "Brown x10Ω",
+            "Red x100Ω",
+            "Orange x1kΩ",
+            "Yellow x10kΩ",
+            "Green x100kΩ",
+            "Blue x1MΩ",
+            "Violet x10MΩ",
+            "Grey x100MΩ",
+            "White x1GΩ",
+            "Gold x0.1Ω",
+            "Silver x0.01Ω"
+        ];
+
+        var toleranceBandItems = [
+            "Brown ±1%",
+            "Red ±2%",
+            "Green ±0.5%",
+            "Blue ±0.25%",
+            "Violet ±0.1%",
+            "Grey ±0.05%",
+            "Gold ±5%",
+            "Silver ±10%"
+        ];
+
+        var temperatureCoefficientBandItems = [
+            "Brown 100ppm",
+            "Red 50ppm",
+            "Orange 15ppm",
+            "Yellow 25ppm",
+            "Blue 10ppm",
+            "Violet 5ppm"
+        ];
+
+        function OhmUnits(amount) {
+            var result = "";
+
+            if (amount >= 1000000000) {
+                result = "GΩ";
+            } else if (amount >= 1000000) {
+                result = "MΩ";
+            } else if (amount >= 1000) {
+                result = "KΩ";
+            } else if (amount < 1000) {
+                result = "Ω";
+            }
+
+            return result;
+        }
+
+        d3.text("infobox.html", data => {
+            console.log("infobox: ", data);
+            d3.select("body").append("div").attr("id", "infobox").html(data);
+        });
 
     </script>
 </body>
