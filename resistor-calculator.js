@@ -55,14 +55,6 @@ function NumberOfBandSelection(number) {
     };
 }
 
-function HandleSelection(colors, dropDownId, bandId) {
-    var index = document.getElementById(dropDownId).selectedIndex;
-
-    d3.select("#" + dropDownId).style('background', colors[index][0]).style('color', colors[index][1]);
-
-    d3.select("#" + bandId).style("stroke", colors[index][0]);
-}
-
 var bandColors = [
     ["none", "black"],
     ["black", "white"],
@@ -76,21 +68,6 @@ var bandColors = [
     ["gray", "white"],
     ["white", "black"],
 ];
-
-function selectBand1() {
-    HandleSelection(bandColors, "band1DropDown", "band1");
-    SetResultsDisplay();
-}
-
-function selectBand2() {
-    HandleSelection(bandColors, "band2DropDown", "band2");
-    SetResultsDisplay();
-}
-
-function selectBand3() {
-    HandleSelection(bandColors, "band3DropDown", "band3");
-    SetResultsDisplay();
-}
 
 var multiplierColors = [
     ["none", "black"],
@@ -108,11 +85,6 @@ var multiplierColors = [
     ["silver", "black"],
 ];
 
-function SelectMultiplier() {
-    HandleSelection(multiplierColors, "multiplierDropDown", "band4");
-    SetResultsDisplay();
-}
-
 var toleranceColors = [
     ["none", "black"],
     ["brown", "white"],
@@ -125,11 +97,6 @@ var toleranceColors = [
     ["silver", "black"],
 ];
 
-function SelectTolerance() {
-    HandleSelection(toleranceColors, "toleranceDropDown", "band5");
-    SetResultsDisplay();
-}
-
 var tempCoColors = [
     ["none", "black"],
     ["brown", "white"],
@@ -139,6 +106,37 @@ var tempCoColors = [
     ["blue", "white"],
     ["violet", "black"],
 ];
+
+function HandleSelection(colors, dropDownId, bandId) {
+    var index = document.getElementById(dropDownId).selectedIndex;
+    d3.select("#" + dropDownId).style('background', colors[index][0]).style('color', colors[index][1]);
+    d3.select("#" + bandId).style("stroke", colors[index][0]);
+}
+
+function selectBand1() {
+    HandleSelection(bandColors, "band1DropDown", "band1");
+    SetResultsDisplay();
+}
+
+function selectBand2() {
+    HandleSelection(bandColors, "band2DropDown", "band2");
+    SetResultsDisplay();
+}
+
+function selectBand3() {
+    HandleSelection(bandColors, "band3DropDown", "band3");
+    SetResultsDisplay();
+}
+
+function SelectMultiplier() {
+    HandleSelection(multiplierColors, "multiplierDropDown", "band4");
+    SetResultsDisplay();
+}
+
+function SelectTolerance() {
+    HandleSelection(toleranceColors, "toleranceDropDown", "band5");
+    SetResultsDisplay();
+}
 
 function SelectTempCo() {
     HandleSelection(tempCoColors, "tempCoDropDown", "band6");
@@ -158,19 +156,6 @@ var resistorBodyShape = [
 
 var xScale = d3.scaleLinear().domain([0, 22]).range([20, 480]);
 var yScale = d3.scaleLinear().domain([-4, 4]).range([200, 20]);
-
-//var xAxis = d3.axisBottom()
-//    .scale(xScale)
-//    .tickSize(200)
-//    .ticks(22);
-
-//var yAxis = d3.axisRight()
-//    .scale(yScale)
-//    .tickSize(480)
-//    .ticks(9);
-
-//d3.select("svg").append("g").attr("id", "xAxisG").call(xAxis);
-//d3.select("svg").append("g").attr("id", "yAxisG").call(yAxis);
 
 // Wire
 d3.select("svg")
@@ -334,7 +319,7 @@ function SetResultsDisplay() {
         tolerance === "" ? "" : "±" + tolerance + "%",
         OhmUnits(minimum),
         OhmUnits(maximum),
-        tempCo + "ppm/°C"
+        tempCo === "" ? "" : tempCo + " ppm/°C"
     ]
 
     d3.selectAll("td.data").data(d3.values(results)).html(p => p);
