@@ -79,17 +79,17 @@ var bandColors = [
 
 function selectBand1() {
     HandleSelection(bandColors, "band1DropDown", "band1");
-    calculateResistance();
+    SetResultsDisplay();
 }
 
 function selectBand2() {
     HandleSelection(bandColors, "band2DropDown", "band2");
-    calculateResistance();
+    SetResultsDisplay();
 }
 
 function selectBand3() {
     HandleSelection(bandColors, "band3DropDown", "band3");
-    calculateResistance();
+    SetResultsDisplay();
 }
 
 var multiplierColors = [
@@ -110,7 +110,7 @@ var multiplierColors = [
 
 function SelectMultiplier() {
     HandleSelection(multiplierColors, "multiplierDropDown", "band4");
-    calculateResistance();
+    SetResultsDisplay();
 }
 
 var toleranceColors = [
@@ -127,7 +127,7 @@ var toleranceColors = [
 
 function SelectTolerance() {
     HandleSelection(toleranceColors, "toleranceDropDown", "band5");
-    calculateResistance();
+    SetResultsDisplay();
 }
 
 var tempCoColors = [
@@ -142,7 +142,7 @@ var tempCoColors = [
 
 function SelectTempCo() {
     HandleSelection(tempCoColors, "tempCoDropDown", "band6");
-    calculateResistance();
+    SetResultsDisplay();
 }
 
 var resistorBodyShape = [
@@ -297,18 +297,12 @@ function OhmUnits(amount) {
     return result;
 }
 
-d3.text("infobox.html", data => {
-    d3.select("body").append("div").attr("id", "infobox").html(data);
-});
-
 function calculateResistance() {
 
     var band1 = document.getElementById("band1DropDown").value;
     var band2 = document.getElementById("band2DropDown").value;
     var band3 = document.getElementById("band3DropDown").value;
     var multiplier = document.getElementById("multiplierDropDown").value;
-    var tolerance = document.getElementById("toleranceDropDown").value;
-    var tempCo = document.getElementById("tempCoDropDown").value;
 
     var concatBands = "";
     concatBands = concatBands.concat(band1.toString()).concat(band2.toString()).concat(band3.toString());
@@ -318,19 +312,36 @@ function calculateResistance() {
         multiplied = parseInt(concatBands) * parseFloat(multiplier)
     }
 
-    var result = OhmUnits(multiplied);
-
-    if (tolerance !== "") {
-        result = result + " ±" + tolerance + "%";        
-    }
-
-    if (tempCo !== "") {
-        result = result + " " + tempCo + "ppm/°C";
-    }
-
-    console.log(result);
-
-    return result;
+    return multiplied;
 }
+
+function SetResultsDisplay() {
+    var resistance = calculateResistance();
+    var tolerance = document.getElementById("toleranceDropDown").value;
+    var tempCo = document.getElementById("tempCoDropDown").value;
+
+    var minimum = "0";
+    var maximum = "0";
+
+    if (resistance !== "" && tolerance !== "") {
+        var percent = resistance / 100 * tolerance;
+        minimum = resistance - percent;
+        maximum = resistance + percent;
+    }
+
+    var results = [
+        OhmUnits(resistance),
+        tolerance === "" ? "" : "±" + tolerance + "%",
+        OhmUnits(minimum),
+        OhmUnits(maximum),
+        tempCo + "ppm/°C"
+    ]
+
+    d3.selectAll("td.data").data(d3.values(results)).html(p => p);
+}
+
+d3.text("infobox.html", data => {
+    d3.select("body").append("div").attr("id", "infobox").html(data);
+});
 
 resetDropDowns();
