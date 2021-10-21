@@ -25,134 +25,93 @@
         <div>
             <label id="band1DropDownLabel" for="band1DropDown">Band 1:</label>
             <select name="band1DropDown" id="band1DropDown">
-                <option value=""
-                    onclick="new function(){d3.select('#band1DropDown').style('background', 'none').style('color', 'black');}">
-                </option>
-                <option style="background:Black;color:white;" value="0"
-                    onclick="SelectBand(0,'#band1DropDown','#band1')">0 Black</option>
-                <option style="background:Brown;color:white;" value="1"
-                    onclick="SelectBand(1,'#band1DropDown','#band1')">1 Brown</option>
-                <option style="background:Red;color:white;" value="2" 
-                    onclick="SelectBand(2,'#band1DropDown','#band1')">2 Red</option>
-                <option style="background:Orange;color:Black;" value="3"
-                    onclick="SelectBand(3,'#band1DropDown','#band1')">3 Orange</option>
-                <option style="background:Yellow;color:Black;" value="4"
-                    onclick="SelectBand(4,'#band1DropDown','#band1')">4 Yellow</option>
-                <option style="background:Green;color:White;" value="5"
-                    onclick="SelectBand(5,'#band1DropDown','#band1')">5 Green</option>
-                <option style="background:Blue;color:White;" value="6"
-                    onclick="SelectBand(6,'#band1DropDown','#band1')">6 Blue</option>
-                <option style="background:Violet;color:Black;" value="7"
-                    onclick="SelectBand(7,'#band1DropDown','#band1')">7 Violet</option>
-                <option style="background:Gray;color:White;" value="8"
-                    onclick="SelectBand(8,'#band1DropDown','#band1')">8 Gray</option>
-                <option style="background:White;color:Black;" value="9"
-                    onclick="SelectBand(9,'#band1DropDown','#band1')">9 White</option>
+                <option value="" onclick="selectBand1()"> </option>
+                <option style="background:Black;color:white;"  value="0" onclick="selectBand1()">0 Black</option>
+                <option style="background:Brown;color:white;"  value="1" onclick="selectBand1()">1 Brown</option>
+                <option style="background:Red;color:white;"    value="2" onclick="selectBand1()">2 Red</option>
+                <option style="background:Orange;color:Black;" value="3" onclick="selectBand1()">3 Orange</option>
+                <option style="background:Yellow;color:Black;" value="4" onclick="selectBand1()">4 Yellow</option>
+                <option style="background:Green;color:White;"  value="5" onclick="selectBand1()">5 Green</option>
+                <option style="background:Blue;color:White;"   value="6" onclick="selectBand1()">6 Blue</option>
+                <option style="background:Violet;color:Black;" value="7" onclick="selectBand1()">7 Violet</option>
+                <option style="background:Gray;color:White;"   value="8" onclick="selectBand1()">8 Gray</option>
+                <option style="background:White;color:Black;"  value="9" onclick="selectBand1()">9 White</option>
             </select>
 
             <label id="band2DropDownLabel" for="band2DropDown">Band 2:</label>
             <select name="band2DropDown" id="band2DropDown">
-                <option value=""
-                    onclick="new function(){d3.select('#band2DropDown').style('background', 'none').style('color', 'black');}">
-                </option>
-                <option style="background:Black;color:white;" value="0"
-                    onclick="SelectBand(0,'#band2DropDown','#band2')">0 Black</option>
-                <option style="background:Brown;color:white;" value="1"
-                    onclick="SelectBand(1,'#band2DropDown','#band2')">1 Brown</option>
-                <option style="background:Red;color:white;" value="2"
-                    onclick="SelectBand(2,'#band2DropDown','#band2')">2 Red</option>
-                <option style="background:Orange;color:Black;" value="3"
-                    onclick="SelectBand(3,'#band2DropDown','#band2')">3 Orange</option>
-                <option style="background:Yellow;color:Black;" value="4"
-                    onclick="SelectBand(4,'#band2DropDown','#band2')">4 Yellow</option>
-                <option style="background:Green;color:White;" value="5"
-                    onclick="SelectBand(5,'#band2DropDown','#band2')">5 Green</option>
-                <option style="background:Blue;color:White;" value="6"
-                    onclick="SelectBand(6,'#band2DropDown','#band2')">6 Blue</option>
-                <option style="background:Violet;color:Black;" value="7"
-                    onclick="SelectBand(7,'#band2DropDown','#band2')">7 Violet</option>
-                <option style="background:Gray;color:White;" value="8"
-                    onclick="SelectBand(8,'#band2DropDown','#band2')">8 Gray</option>
-                <option style="background:White;color:Black;" value="9"
-                    onclick="SelectBand(9,'#band2DropDown','#band2')">9 White</option>
+                <option value="" onclick="selectBand2()"></option>
+                <option style="background:Black;color:white;"  value="0" onclick="selectBand2()">0 Black</option>
+                <option style="background:Brown;color:white;"  value="1" onclick="selectBand2()">1 Brown</option>
+                <option style="background:Red;color:white;"    value="2" onclick="selectBand2()">2 Red</option>
+                <option style="background:Orange;color:Black;" value="3" onclick="selectBand2()">3 Orange</option>
+                <option style="background:Yellow;color:Black;" value="4" onclick="selectBand2()">4 Yellow</option>
+                <option style="background:Green;color:White;"  value="5" onclick="selectBand2()">5 Green</option>
+                <option style="background:Blue;color:White;"   value="6" onclick="selectBand2()">6 Blue</option>
+                <option style="background:Violet;color:Black;" value="7" onclick="selectBand2()">7 Violet</option>
+                <option style="background:Gray;color:White;"   value="8" onclick="selectBand2()">8 Gray</option>
+                <option style="background:White;color:Black;"  value="9" onclick="selectBand2()">9 White</option>
             </select>
 
             <label id="band3DropDownLabel" for="band3DropDown">Band 3:</label>
             <select name="band3DropDown" id="band3DropDown">
-                <option value=""
-                    onclick="new function(){d3.select('#band3DropDown').style('background', 'none').style('color', 'black');}">
-                </option>
-                <option style="background:Black;color:white;" value="0"
-                    onclick="SelectBand(0,'#band3DropDown','#band3')">0 Black</option>
-                <option style="background:Brown;color:white;" value="1"
-                    onclick="SelectBand(1,'#band3DropDown','#band3')">1 Brown</option>
-                <option style="background:Red;color:white;" value="2" 
-                    onclick="SelectBand(2,'#band3DropDown','#band3')">2 Red</option>
-                <option style="background:Orange;color:Black;" value="3"
-                    onclick="SelectBand(3,'#band3DropDown','#band3')">3 Orange</option>
-                <option style="background:Yellow;color:Black;" value="4"
-                    onclick="SelectBand(4,'#band3DropDown','#band3')">4 Yellow</option>
-                <option style="background:Green;color:White;" value="5"
-                    onclick="SelectBand(5,'#band3DropDown','#band3')">5 Green</option>
-                <option style="background:Blue;color:White;" value="6"
-                    onclick="SelectBand(6,'#band3DropDown','#band3')">6 Blue</option>
-                <option style="background:Violet;color:Black;" value="7"
-                    onclick="SelectBand(7,'#band3DropDown','#band3')">7 Violet</option>
-                <option style="background:Gray;color:White;" value="8"
-                    onclick="SelectBand(8,'#band3DropDown','#band3')">8 Gray</option>
-                <option style="background:White;color:Black;" value="9"
-                    onclick="SelectBand(9,'#band3DropDown','#band3')">9 White</option>
+                <option value="" onclick="selectBand3()"></option>
+                <option style="background:Black;color:white;"  value="0" onclick="selectBand3()">0 Black</option>
+                <option style="background:Brown;color:white;"  value="1" onclick="selectBand3()">1 Brown</option>
+                <option style="background:Red;color:white;"    value="2" onclick="selectBand3()">2 Red</option>
+                <option style="background:Orange;color:Black;" value="3" onclick="selectBand3()">3 Orange</option>
+                <option style="background:Yellow;color:Black;" value="4" onclick="selectBand3()">4 Yellow</option>
+                <option style="background:Green;color:White;"  value="5" onclick="selectBand3()">5 Green</option>
+                <option style="background:Blue;color:White;"   value="6" onclick="selectBand3()">6 Blue</option>
+                <option style="background:Violet;color:Black;" value="7" onclick="selectBand3()">7 Violet</option>
+                <option style="background:Gray;color:White;"   value="8" onclick="selectBand3()">8 Gray</option>
+                <option style="background:White;color:Black;"  value="9" onclick="selectBand3()">9 White</option>
             </select>
 
             <label id="multiplierDropDownLabel" for="multiplierDropDown">Multiplier:</label>
             <select name="multiplierDropDown" id="multiplierDropDown">
-                <option value=""
-                    onclick="new function(){d3.select('#multiplierDropDown').style('background', 'none').style('color', 'black');}">
-                </option>
-                <option style="background:Black;color:white;" value="0">Black x1Ω</option>
-                <option style="background:brown;color:white;" value="0">Brown x10Ω</option>
-                <option style="background:red;color:white;" value="0">Red x100Ω</option>
-                <option style="background:orange;color:black;" value="0">Orange x1kΩ</option>
-                <option style="background:yellow;color:black;" value="0">Yellow x10kΩ</option>
-                <option style="background:green;color:white;" value="0">Green x100kΩ</option>
-                <option style="background:blue;color:white;" value="0">Blue x1MΩ</option>
-                <option style="background:violet;color:black;" value="0">Violet x10MΩ</option>
-                <option style="background:gray;color:white;" value="0">Grey x100MΩ</option>
-                <option style="background:white;color:black;" value="0">White x1GΩ</option>
-                <option style="background:gold;color:black;" value="0">Gold x0.1Ω</option>
-                <option style="background:silver;color:black;" value="0">Silver x0.01Ω</option>
+                <option value="" onclick="SelectMultiplier()"></option>
+                <option style="background:Black;color:white;"  value="0"           onclick="SelectMultiplier()">Black x1Ω</option>
+                <option style="background:brown;color:white;"  value="10"          onclick="SelectMultiplier()">Brown x10Ω</option>
+                <option style="background:red;color:white;"    value="100"         onclick="SelectMultiplier()">Red x100Ω</option>
+                <option style="background:orange;color:black;" value="1000"        onclick="SelectMultiplier()">Orange x1kΩ</option>
+                <option style="background:yellow;color:black;" value="10000"       onclick="SelectMultiplier()">Yellow x10kΩ</option>
+                <option style="background:green;color:white;"  value="100000"      onclick="SelectMultiplier()">Green x100kΩ</option>
+                <option style="background:blue;color:white;"   value="1000000"     onclick="SelectMultiplier()">Blue x1MΩ</option>
+                <option style="background:violet;color:black;" value="10000000"    onclick="SelectMultiplier()">Violet x10MΩ</option>
+                <option style="background:gray;color:white;"   value="100000000"   onclick="SelectMultiplier()">Grey x100MΩ</option>
+                <option style="background:white;color:black;"  value="1000000000"  onclick="SelectMultiplier()">White x1GΩ</option>
+                <option style="background:gold;color:black;"   value="0.1"         onclick="SelectMultiplier()">Gold x0.1Ω</option>
+                <option style="background:silver;color:black;" value="0.01"        onclick="SelectMultiplier()">Silver x0.01Ω</option>
             </select>
 
             <label id="toleranceDropDownLabel" for="toleranceDropDown">Tolerance:</label>
             <select name="toleranceDropDown" id="toleranceDropDown">
-                <option value=""
-                    onclick="new function(){d3.select('#toleranceDropDown').style('background', 'none').style('color', 'black');}">
-                </option>
-                <option style="background:brown;color:white;" value="0">Brown ±1%</option>
-                <option style="background:red;color:white;" value="0">Red ±2%</option>
-                <option style="background:green;color:white;" value="0">Green ±0.5%</option>
-                <option style="background:blue;color:white;" value="0">Blue ±0.25%</option>
-                <option style="background:violet;color:black;" value="0">Violet ±0.1%</option>
-                <option style="background:gray;color:white;" value="0">Gray ±0.05%</option>
-                <option style="background:gold;color:black;" value="0">Gold ±5%</option>
-                <option style="background:silver;color:black;" value="0">Silver ±10%</option>
+                <option value="" onclick="SelectTolerance()"> </option>
+                <option style="background:brown;color:white;"  value="1"    onclick="SelectTolerance()">Brown ±1%</option>
+                <option style="background:red;color:white;"    value="2"    onclick="SelectTolerance()">Red ±2%</option>
+                <option style="background:green;color:white;"  value="0.5"  onclick="SelectTolerance()">Green ±0.5%</option>
+                <option style="background:blue;color:white;"   value="0.25" onclick="SelectTolerance()">Blue ±0.25%</option>
+                <option style="background:violet;color:black;" value="0.1"  onclick="SelectTolerance()">Violet ±0.1%</option>
+                <option style="background:gray;color:white;"   value="0.05" onclick="SelectTolerance()">Gray ±0.05%</option>
+                <option style="background:gold;color:black;"   value="5"    onclick="SelectTolerance()">Gold ±5%</option>
+                <option style="background:silver;color:black;" value="10"   onclick="SelectTolerance()">Silver ±10%</option>
             </select>
 
             <label id="tempCoDropDownLabel" for="tempCoDropDown">Temperature Coefficient:</label>
             <select name="tempCoDropDown" id="tempCoDropDown">
-                <option value=""
-                    onclick="new function(){d3.select('#tempCoDropDown').style('background', 'none').style('color', 'black');}">
-                </option>
-                <option style="background:brown;color:white;" value="0">Brown 100ppm</option>
-                <option style="background:red;color:white;" value="0">Red 50ppm</option>
-                <option style="background:orange;color:white;" value="0">Orange 15ppm</option>
-                <option style="background:yellow;color:black;" value="0">Yellow 25ppm</option>
-                <option style="background:blue;color:white;" value="0">Blue 10ppm</option>
-                <option style="background:violet;color:black;" value="0">Violet 5ppm</option>
+                <option value=""onclick="SelectTempCo()"></option>
+                <option style="background:brown;color:white;"  value="100"  onclick="SelectTempCo()">Brown 100ppm</option>
+                <option style="background:red;color:white;"    value="50"   onclick="SelectTempCo()">Red 50ppm</option>
+                <option style="background:orange;color:white;" value="15"   onclick="SelectTempCo()">Orange 15ppm</option>
+                <option style="background:yellow;color:black;" value="25"   onclick="SelectTempCo()">Yellow 25ppm</option>
+                <option style="background:blue;color:white;"   value="10"   onclick="SelectTempCo()">Blue 10ppm</option>
+                <option style="background:violet;color:black;" value="5"    onclick="SelectTempCo()">Violet 5ppm</option>
             </select>
         </div>
     </div>
 </body>
+
 <script src="resistor-calculator.js"></script>
 
 </html>

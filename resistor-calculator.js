@@ -23,15 +23,15 @@ function NumberOfBandSelection(number) {
 
             d3.select("#band3DropDown").attr("hidden", null);
             d3.select("#band3DropDownLabel").attr("hidden", null);
-            
+
             d3.select("#tempCoDropDown").attr("hidden", true);
             d3.select("#tempCoDropDownLabel").attr("hidden", true);
 
             d3.select("#band5")
-            .attr("x1", xScale(18) + 8)
-            .attr("x2", xScale(18) + 8)
-            .attr("y1", yScale(3))
-            .attr("y2", yScale(-3));
+                .attr("x1", xScale(18) + 8)
+                .attr("x2", xScale(18) + 8)
+                .attr("y1", yScale(3))
+                .attr("y2", yScale(-3));
 
             break;
         case 6:
@@ -54,53 +54,88 @@ function NumberOfBandSelection(number) {
     };
 }
 
-function setBandColor(band, color) {
-    d3.select(`${band}`).style("stroke", color);
+function HandleSelection(colors, dropDownId, bandId) {
+    var index = document.getElementById(dropDownId).selectedIndex;
+
+    d3.select("#" + dropDownId).style('background', colors[index][0]).style('color', colors[index][1]);
+
+    d3.select("#" + bandId).style("stroke", colors[index][0]);
 }
 
-function SelectBand(selection, id, band) {
-    switch (selection) {
-        case 0:
-            d3.select(`${id}`).style("background", "black").style("color", "white");
-            setBandColor(band, "black");
-            break;
-        case 1:
-            d3.select(`${id}`).style("background", "brown").style("color", "white");
-            setBandColor(band, "brown");
-            break;
-        case 2:
-            d3.select(`${id}`).style("background", "red").style("color", "white");
-            setBandColor(band, "red");
-            break;
-        case 3:
-            d3.select(`${id}`).style("background", "orange").style("color", "black");
-            setBandColor(band, "orange");
-            break;
-        case 4:
-            d3.select(`${id}`).style("background", "yellow").style("color", "black");
-            setBandColor(band, "yellow");
-            break;
-        case 5:
-            d3.select(`${id}`).style("background", "green").style("color", "white");
-            setBandColor(band, "green");
-            break;
-        case 6:
-            d3.select(`${id}`).style("background", "blue").style("color", "white");
-            setBandColor(band, "blue");
-            break;
-        case 7:
-            d3.select(`${id}`).style("background", "violet").style("color", "black");
-            setBandColor(band, "violet");
-            break;
-        case 8:
-            d3.select(`${id}`).style("background", "gray").style("color", "white");
-            setBandColor(band, "gray");
-            break;
-        case 9:
-            d3.select(`${id}`).style("background", "white").style("color", "black");
-            setBandColor(band, "white");
-            break;
-    };
+var bandColors = [
+    ["none", "black"],
+    ["black","white"],
+    ["brown","white"],
+    ["red","white"],
+    ["orange","black"],
+    ["yellow","black"],
+    ["green","white"],
+    ["blue","white"],
+    ["violet","black"],
+    ["gray","white"],
+    ["white","black"],
+];
+
+function selectBand1(){
+    HandleSelection(bandColors, "band1DropDown", "band1");
+}
+
+function selectBand2(){
+    HandleSelection(bandColors, "band2DropDown", "band2");
+}
+
+function selectBand3(){
+    HandleSelection(bandColors, "band3DropDown", "band3");
+}
+
+var multiplierColors = [
+    ["none", "black"],
+    ["black", "white"],
+    ["brown", "white"],
+    ["red", "white"],
+    ["orange", "black"],
+    ["yellow", "black"],
+    ["green", "white"],
+    ["blue", "white"],
+    ["violet", "black"],
+    ["grey", "white"],
+    ["white", "black"],
+    ["gold", "black"],
+    ["silver", "black"],
+];
+
+function SelectMultiplier() {
+    HandleSelection(multiplierColors, "multiplierDropDown", "band4");
+}
+
+var toleranceColors = [
+    ["none", "black"],
+    ["brown", "white"],
+    ["red", "white"],
+    ["green", "white"],
+    ["blue", "white"],
+    ["violet", "black"],
+    ["grey", "white"],
+    ["gold", "black"],
+    ["silver", "black"],
+];
+
+function SelectTolerance() {
+    HandleSelection(toleranceColors, "toleranceDropDown", "band5");
+}
+
+var tempCoColors =[
+    ["none", "black"],
+    ["brown", "white"],
+    ["red", "white"],
+    ["orange", "black"],
+    ["yellow", "black"],
+    ["blue", "white"],
+    ["violet", "black"],
+];
+
+function SelectTempCo() {
+    HandleSelection(tempCoColors, "tempCoDropDown", "band6");
 }
 
 var resistorBodyShape = [
@@ -117,15 +152,15 @@ var resistorBodyShape = [
 var xScale = d3.scaleLinear().domain([0, 22]).range([20, 480]);
 var yScale = d3.scaleLinear().domain([-4, 4]).range([200, 20]);
 
-var xAxis = d3.axisBottom()
-    .scale(xScale)
-    .tickSize(200)
-    .ticks(22);
+//var xAxis = d3.axisBottom()
+//    .scale(xScale)
+//    .tickSize(200)
+//    .ticks(22);
 
-var yAxis = d3.axisRight()
-    .scale(yScale)
-    .tickSize(480)
-    .ticks(9);
+//var yAxis = d3.axisRight()
+//    .scale(yScale)
+//    .tickSize(480)
+//    .ticks(9);
 
 //d3.select("svg").append("g").attr("id", "xAxisG").call(xAxis);
 //d3.select("svg").append("g").attr("id", "yAxisG").call(yAxis);
