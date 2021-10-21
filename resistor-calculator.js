@@ -1,11 +1,15 @@
 function NumberOfBandSelection(number) {
     switch (number) {
-        case 4:
-            d3.select("#band3").style("stroke", "none");
-            d3.select("#band6").style("stroke", "none");
+        case 4:            
+            document.getElementById("band3DropDown").selectedIndex = 0;
+            selectBand3();
+            document.getElementById("tempCoDropDown").selectedIndex = 0;
+            SelectTempCo();
 
             d3.select("#band3DropDown").attr("hidden", true);
+            d3.select("#band3DropDown").attr("hidden", true);
             d3.select("#band3DropDownLabel").attr("hidden", true);
+
             d3.select("#tempCoDropDown").attr("hidden", true);
             d3.select("#tempCoDropDownLabel").attr("hidden", true);
 
@@ -18,14 +22,13 @@ function NumberOfBandSelection(number) {
 
             break;
         case 5:
-            d3.select("#band3").style("stroke", "black");
-            d3.select("#band6").style("stroke", "none");
-
             d3.select("#band3DropDown").attr("hidden", null);
             d3.select("#band3DropDownLabel").attr("hidden", null);
 
             d3.select("#tempCoDropDown").attr("hidden", true);
             d3.select("#tempCoDropDownLabel").attr("hidden", true);
+            document.getElementById("tempCoDropDown").selectedIndex = 0;
+            SelectTempCo();
 
             d3.select("#band5")
                 .attr("x1", xScale(18) + 8)
@@ -35,11 +38,9 @@ function NumberOfBandSelection(number) {
 
             break;
         case 6:
-            d3.select("#band3").style("stroke", "black");
-            d3.select("#band6").style("stroke", "black");
-
             d3.select("#band3DropDown").attr("hidden", null);
             d3.select("#band3DropDownLabel").attr("hidden", null);
+
             d3.select("#tempCoDropDown").attr("hidden", null);
             d3.select("#tempCoDropDownLabel").attr("hidden", null);
 
@@ -64,27 +65,27 @@ function HandleSelection(colors, dropDownId, bandId) {
 
 var bandColors = [
     ["none", "black"],
-    ["black","white"],
-    ["brown","white"],
-    ["red","white"],
-    ["orange","black"],
-    ["yellow","black"],
-    ["green","white"],
-    ["blue","white"],
-    ["violet","black"],
-    ["gray","white"],
-    ["white","black"],
+    ["black", "white"],
+    ["brown", "white"],
+    ["red", "white"],
+    ["orange", "black"],
+    ["yellow", "black"],
+    ["green", "white"],
+    ["blue", "white"],
+    ["violet", "black"],
+    ["gray", "white"],
+    ["white", "black"],
 ];
 
-function selectBand1(){
+function selectBand1() {
     HandleSelection(bandColors, "band1DropDown", "band1");
 }
 
-function selectBand2(){
+function selectBand2() {
     HandleSelection(bandColors, "band2DropDown", "band2");
 }
 
-function selectBand3(){
+function selectBand3() {
     HandleSelection(bandColors, "band3DropDown", "band3");
 }
 
@@ -124,7 +125,7 @@ function SelectTolerance() {
     HandleSelection(toleranceColors, "toleranceDropDown", "band5");
 }
 
-var tempCoColors =[
+var tempCoColors = [
     ["none", "black"],
     ["brown", "white"],
     ["red", "white"],
@@ -195,7 +196,7 @@ d3.select("svg")
     .attr("x2", xScale(3) + 8)
     .attr("y1", yScale(3))
     .attr("y2", yScale(-3))
-    .style("stroke", "brown")
+    .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band1");
 
@@ -206,7 +207,7 @@ d3.select("svg")
     .attr("x2", xScale(7) + 8)
     .attr("y1", yScale(2))
     .attr("y2", yScale(-2))
-    .style("stroke", "white")
+    .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band2");
 
@@ -217,7 +218,7 @@ d3.select("svg")
     .attr("x2", xScale(9) + 8)
     .attr("y1", yScale(2))
     .attr("y2", yScale(-2))
-    .style("stroke", "silver")
+    .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band3");
 
@@ -228,7 +229,7 @@ d3.select("svg")
     .attr("x2", xScale(11) + 8)
     .attr("y1", yScale(2))
     .attr("y2", yScale(-2))
-    .style("stroke", "gold")
+    .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band4");
 
@@ -239,7 +240,7 @@ d3.select("svg")
     .attr("x2", xScale(14) + 8)
     .attr("y1", yScale(2))
     .attr("y2", yScale(-2))
-    .style("stroke", "red")
+    .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band5");
 
@@ -250,9 +251,29 @@ d3.select("svg")
     .attr("x2", xScale(18) + 8)
     .attr("y1", yScale(3))
     .attr("y2", yScale(-3))
-    .style("stroke", "yellow")
+    .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band6");
+
+function resetDropDowns() {
+    NumberOfBandSelection(4);
+    document.getElementById("resistorBands").selectedIndex = 0;
+
+    document.getElementById("band1DropDown").selectedIndex = 0;
+    document.getElementById("band2DropDown").selectedIndex = 0;
+    document.getElementById("band3DropDown").selectedIndex = 0;
+    document.getElementById("multiplierDropDown").selectedIndex = 0;
+    document.getElementById("toleranceDropDown").selectedIndex = 0;
+    document.getElementById("tempCoDropDown").selectedIndex = 0;
+
+    selectBand1();
+    selectBand2();
+    selectBand3();
+    SelectMultiplier();
+    SelectTolerance();
+    SelectTempCo();
+}
+
 
 function OhmUnits(amount) {
     var result = "";
@@ -273,3 +294,5 @@ function OhmUnits(amount) {
 d3.text("infobox.html", data => {
     d3.select("body").append("div").attr("id", "infobox").html(data);
 });
+
+resetDropDowns();
