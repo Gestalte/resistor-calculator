@@ -1,0 +1,20 @@
+path.domain {
+    stroke: none;
+}
+
+#infobox {
+    position: fixed;
+    left: 500px;
+    top: 50px;
+    z-index: 1;
+    background: white;
+    border: 1px black solid;
+}
+
+tr {
+    border: 1px gray solid;
+}
+
+td.data {
+    font-weight: 900;
+}
