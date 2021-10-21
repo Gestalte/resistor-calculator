@@ -1,6 +1,6 @@
 function NumberOfBandSelection(number) {
     switch (number) {
-        case 4:            
+        case 4:
             document.getElementById("band3DropDown").selectedIndex = 0;
             selectBand3();
             document.getElementById("tempCoDropDown").selectedIndex = 0;
@@ -79,14 +79,17 @@ var bandColors = [
 
 function selectBand1() {
     HandleSelection(bandColors, "band1DropDown", "band1");
+    calculateResistance();
 }
 
 function selectBand2() {
     HandleSelection(bandColors, "band2DropDown", "band2");
+    calculateResistance();
 }
 
 function selectBand3() {
     HandleSelection(bandColors, "band3DropDown", "band3");
+    calculateResistance();
 }
 
 var multiplierColors = [
@@ -107,6 +110,7 @@ var multiplierColors = [
 
 function SelectMultiplier() {
     HandleSelection(multiplierColors, "multiplierDropDown", "band4");
+    calculateResistance();
 }
 
 var toleranceColors = [
@@ -123,6 +127,7 @@ var toleranceColors = [
 
 function SelectTolerance() {
     HandleSelection(toleranceColors, "toleranceDropDown", "band5");
+    calculateResistance();
 }
 
 var tempCoColors = [
@@ -137,6 +142,7 @@ var tempCoColors = [
 
 function SelectTempCo() {
     HandleSelection(tempCoColors, "tempCoDropDown", "band6");
+    calculateResistance();
 }
 
 var resistorBodyShape = [
@@ -279,13 +285,13 @@ function OhmUnits(amount) {
     var result = "";
 
     if (amount >= 1000000000) {
-        result = "GΩ";
+        result = (amount / 1000000000) + " GΩ";
     } else if (amount >= 1000000) {
-        result = "MΩ";
+        result = (amount / 1000000) + " MΩ";
     } else if (amount >= 1000) {
-        result = "KΩ";
+        result = (amount / 1000) + " KΩ";
     } else if (amount < 1000) {
-        result = "Ω";
+        result = amount + " Ω";
     }
 
     return result;
@@ -294,5 +300,37 @@ function OhmUnits(amount) {
 d3.text("infobox.html", data => {
     d3.select("body").append("div").attr("id", "infobox").html(data);
 });
+
+function calculateResistance() {
+
+    var band1 = document.getElementById("band1DropDown").value;
+    var band2 = document.getElementById("band2DropDown").value;
+    var band3 = document.getElementById("band3DropDown").value;
+    var multiplier = document.getElementById("multiplierDropDown").value;
+    var tolerance = document.getElementById("toleranceDropDown").value;
+    var tempCo = document.getElementById("tempCoDropDown").value;
+
+    var concatBands = "";
+    concatBands = concatBands.concat(band1.toString()).concat(band2.toString()).concat(band3.toString());
+
+    var multiplied = 0;
+    if (concatBands !== "0" && concatBands !== "00" && concatBands !== "") {
+        multiplied = parseInt(concatBands) * parseFloat(multiplier)
+    }
+
+    var result = OhmUnits(multiplied);
+
+    if (tolerance !== "") {
+        result = result + " ±" + tolerance + "%";        
+    }
+
+    if (tempCo !== "") {
+        result = result + " " + tempCo + "ppm/°C";
+    }
+
+    console.log(result);
+
+    return result;
+}
 
 resetDropDowns();
