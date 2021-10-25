@@ -45,8 +45,8 @@ function NumberOfBandSelection() {
         d3.select("#band5")
             .attr("x1", xScale(14) + 8)
             .attr("x2", xScale(14) + 8)
-            .attr("y1", yScale(1.9))
-            .attr("y2", yScale(-1.9));
+            .attr("y1", yScale(1.95))
+            .attr("y2", yScale(-1.95));
     }
 }
 
@@ -165,15 +165,16 @@ d3.select("svg")
 var shapeArea = d3.area()
     .x(d => xScale(d.a))
     .y0(d => yScale(d.b))
-    .y1(d => yScale(-d.b)).curve(d3.curveCardinal);
+    .y1(d => yScale(-d.b))
+    .curve(d3.curveCardinal);
 
 // Resistor body
 d3.select("svg")
     .append("path")
     .attr("d", shapeArea(resistorBodyShape))
     .attr("fill", "lavender")
-    .attr("stroke", "black")
-    .attr("stroke-width", 2);
+    .attr("stroke-width", 2)
+    .attr("z-index", -1);
 
 // Band 1
 d3.select("svg")
@@ -184,51 +185,56 @@ d3.select("svg")
     .attr("y2", yScale(-3.1))
     .style("stroke", "none")
     .style("stroke-width", 16)
-    .attr("id", "band1");
+    .attr("id", "band1")
+    .attr("z-index", 1);
 
 // Band 2
 d3.select("svg")
     .append("line")
     .attr("x1", xScale(7) + 8)
     .attr("x2", xScale(7) + 8)
-    .attr("y1", yScale(1.9))
-    .attr("y2", yScale(-1.9))
+    .attr("y1", yScale(1.95))
+    .attr("y2", yScale(-1.95))
     .style("stroke", "none")
     .style("stroke-width", 16)
-    .attr("id", "band2");
+    .attr("id", "band2")
+    .attr("z-index", 1);
 
 // Band 3
 d3.select("svg")
     .append("line")
     .attr("x1", xScale(9) + 8)
     .attr("x2", xScale(9) + 8)
-    .attr("y1", yScale(1.8))
-    .attr("y2", yScale(-1.8))
+    .attr("y1", yScale(1.9))
+    .attr("y2", yScale(-1.9))
     .style("stroke", "none")
     .style("stroke-width", 16)
-    .attr("id", "band3");
+    .attr("id", "band3")
+    .attr("z-index", 1);
 
 // Band 4
 d3.select("svg")
     .append("line")
     .attr("x1", xScale(11) + 8)
     .attr("x2", xScale(11) + 8)
-    .attr("y1", yScale(1.8))
-    .attr("y2", yScale(-1.8))
+    .attr("y1", yScale(1.9))
+    .attr("y2", yScale(-1.9))
     .style("stroke", "none")
     .style("stroke-width", 16)
-    .attr("id", "band4");
+    .attr("id", "band4")
+    .attr("z-index", 1);
 
 // Band 5
 d3.select("svg")
     .append("line")
     .attr("x1", xScale(14) + 8)
     .attr("x2", xScale(14) + 8)
-    .attr("y1", yScale(1.9))
-    .attr("y2", yScale(-1.9))
+    .attr("y1", yScale(2.3))
+    .attr("y2", yScale(-2.3))
     .style("stroke", "none")
     .style("stroke-width", 16)
-    .attr("id", "band5");
+    .attr("id", "band5")
+    .attr("z-index", 1);
 
 // Band 6
 d3.select("svg")
@@ -239,7 +245,16 @@ d3.select("svg")
     .attr("y2", yScale(-3.1))
     .style("stroke", "none")
     .style("stroke-width", 16)
-    .attr("id", "band6");
+    .attr("id", "band6")
+    .attr("z-index", 1);
+
+d3.select("svg")
+    .append("path")
+    .attr("d", shapeArea(resistorBodyShape))
+    .attr("fill", "none")
+    .attr("stroke", "black")
+    .attr("stroke-width", 2)
+    .attr("z-index", 2);
 
 function resetDropDowns() {
     document.getElementById("resistorBands").selectedIndex = 0;
