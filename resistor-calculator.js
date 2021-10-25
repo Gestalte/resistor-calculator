@@ -1,58 +1,53 @@
-function NumberOfBandSelection(number) {
-    switch (number) {
-        case 4:
-            document.getElementById("band3DropDown").selectedIndex = 0;
-            selectBand3();
-            document.getElementById("tempCoDropDown").selectedIndex = 0;
-            SelectTempCo();
+function NumberOfBandSelection() {
+    var number = parseInt(document.getElementById("resistorBands").value);
 
-            d3.select("#band3DropDown").attr("hidden", true);
-            d3.select("#band3DropDown").attr("hidden", true);
-            d3.select("#band3DropDownLabel").attr("hidden", true);
+    if (number === 4) {
+        document.getElementById("band3DropDown").selectedIndex = 0;
+        selectBand3();
+        document.getElementById("tempCoDropDown").selectedIndex = 0;
+        SelectTempCo();
 
-            d3.select("#tempCoDropDown").attr("hidden", true);
-            d3.select("#tempCoDropDownLabel").attr("hidden", true);
+        d3.select("#band3DropDown").attr("hidden", true);
+        d3.select("#band3DropDown").attr("hidden", true);
+        d3.select("#band3DropDownLabel").attr("hidden", true);
 
-            // Move Band 5 to end of resistor
-            d3.select("#band5")
-                .attr("x1", xScale(18) + 8)
-                .attr("x2", xScale(18) + 8)
-                .attr("y1", yScale(3))
-                .attr("y2", yScale(-3));
+        d3.select("#tempCoDropDown").attr("hidden", true);
+        d3.select("#tempCoDropDownLabel").attr("hidden", true);
 
-            break;
-        case 5:
-            d3.select("#band3DropDown").attr("hidden", null);
-            d3.select("#band3DropDownLabel").attr("hidden", null);
+        // Move Band 5 to end of resistor
+        d3.select("#band5")
+            .attr("x1", xScale(18) + 8)
+            .attr("x2", xScale(18) + 8)
+            .attr("y1", yScale(3))
+            .attr("y2", yScale(-3));
+    } else if (number === 5) {
+        d3.select("#band3DropDown").attr("hidden", null);
+        d3.select("#band3DropDownLabel").attr("hidden", null);
 
-            d3.select("#tempCoDropDown").attr("hidden", true);
-            d3.select("#tempCoDropDownLabel").attr("hidden", true);
-            document.getElementById("tempCoDropDown").selectedIndex = 0;
-            SelectTempCo();
+        d3.select("#tempCoDropDown").attr("hidden", true);
+        d3.select("#tempCoDropDownLabel").attr("hidden", true);
+        document.getElementById("tempCoDropDown").selectedIndex = 0;
+        SelectTempCo();
 
-            d3.select("#band5")
-                .attr("x1", xScale(18) + 8)
-                .attr("x2", xScale(18) + 8)
-                .attr("y1", yScale(3))
-                .attr("y2", yScale(-3));
+        d3.select("#band5")
+            .attr("x1", xScale(18) + 8)
+            .attr("x2", xScale(18) + 8)
+            .attr("y1", yScale(3))
+            .attr("y2", yScale(-3));
+    } else if (number === 6) {
+        d3.select("#band3DropDown").attr("hidden", null);
+        d3.select("#band3DropDownLabel").attr("hidden", null);
 
-            break;
-        case 6:
-            d3.select("#band3DropDown").attr("hidden", null);
-            d3.select("#band3DropDownLabel").attr("hidden", null);
+        d3.select("#tempCoDropDown").attr("hidden", null);
+        d3.select("#tempCoDropDownLabel").attr("hidden", null);
 
-            d3.select("#tempCoDropDown").attr("hidden", null);
-            d3.select("#tempCoDropDownLabel").attr("hidden", null);
-
-            // Move Band 5 to before the end of resistor
-            d3.select("#band5")
-                .attr("x1", xScale(14) + 8)
-                .attr("x2", xScale(14) + 8)
-                .attr("y1", yScale(2))
-                .attr("y2", yScale(-2));
-
-            break;
-    };
+        // Move Band 5 to before the end of resistor
+        d3.select("#band5")
+            .attr("x1", xScale(14) + 8)
+            .attr("x2", xScale(14) + 8)
+            .attr("y1", yScale(2))
+            .attr("y2", yScale(-2));
+    }
 }
 
 var bandColors = [
@@ -247,8 +242,8 @@ d3.select("svg")
     .attr("id", "band6");
 
 function resetDropDowns() {
-    NumberOfBandSelection(4);
     document.getElementById("resistorBands").selectedIndex = 0;
+    NumberOfBandSelection();
 
     document.getElementById("band1DropDown").selectedIndex = 0;
     document.getElementById("band2DropDown").selectedIndex = 0;
