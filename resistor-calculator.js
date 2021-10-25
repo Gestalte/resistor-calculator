@@ -18,8 +18,8 @@ function NumberOfBandSelection() {
         d3.select("#band5")
             .attr("x1", xScale(18) + 8)
             .attr("x2", xScale(18) + 8)
-            .attr("y1", yScale(3))
-            .attr("y2", yScale(-3));
+            .attr("y1", yScale(3.1))
+            .attr("y2", yScale(-3.1));
     } else if (number === 5) {
         d3.select("#band3DropDown").attr("hidden", null);
         d3.select("#band3DropDownLabel").attr("hidden", null);
@@ -32,8 +32,8 @@ function NumberOfBandSelection() {
         d3.select("#band5")
             .attr("x1", xScale(18) + 8)
             .attr("x2", xScale(18) + 8)
-            .attr("y1", yScale(3))
-            .attr("y2", yScale(-3));
+            .attr("y1", yScale(3.1))
+            .attr("y2", yScale(-3.1));
     } else if (number === 6) {
         d3.select("#band3DropDown").attr("hidden", null);
         d3.select("#band3DropDownLabel").attr("hidden", null);
@@ -45,8 +45,8 @@ function NumberOfBandSelection() {
         d3.select("#band5")
             .attr("x1", xScale(14) + 8)
             .attr("x2", xScale(14) + 8)
-            .attr("y1", yScale(2))
-            .attr("y2", yScale(-2));
+            .attr("y1", yScale(1.9))
+            .attr("y2", yScale(-1.9));
     }
 }
 
@@ -180,8 +180,8 @@ d3.select("svg")
     .append("line")
     .attr("x1", xScale(3) + 8)
     .attr("x2", xScale(3) + 8)
-    .attr("y1", yScale(3))
-    .attr("y2", yScale(-3))
+    .attr("y1", yScale(3.1))
+    .attr("y2", yScale(-3.1))
     .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band1");
@@ -191,8 +191,8 @@ d3.select("svg")
     .append("line")
     .attr("x1", xScale(7) + 8)
     .attr("x2", xScale(7) + 8)
-    .attr("y1", yScale(2))
-    .attr("y2", yScale(-2))
+    .attr("y1", yScale(1.9))
+    .attr("y2", yScale(-1.9))
     .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band2");
@@ -202,8 +202,8 @@ d3.select("svg")
     .append("line")
     .attr("x1", xScale(9) + 8)
     .attr("x2", xScale(9) + 8)
-    .attr("y1", yScale(2))
-    .attr("y2", yScale(-2))
+    .attr("y1", yScale(1.8))
+    .attr("y2", yScale(-1.8))
     .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band3");
@@ -213,8 +213,8 @@ d3.select("svg")
     .append("line")
     .attr("x1", xScale(11) + 8)
     .attr("x2", xScale(11) + 8)
-    .attr("y1", yScale(2))
-    .attr("y2", yScale(-2))
+    .attr("y1", yScale(1.8))
+    .attr("y2", yScale(-1.8))
     .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band4");
@@ -224,8 +224,8 @@ d3.select("svg")
     .append("line")
     .attr("x1", xScale(14) + 8)
     .attr("x2", xScale(14) + 8)
-    .attr("y1", yScale(2))
-    .attr("y2", yScale(-2))
+    .attr("y1", yScale(1.9))
+    .attr("y2", yScale(-1.9))
     .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band5");
@@ -235,8 +235,8 @@ d3.select("svg")
     .append("line")
     .attr("x1", xScale(18) + 8)
     .attr("x2", xScale(18) + 8)
-    .attr("y1", yScale(3))
-    .attr("y2", yScale(-3))
+    .attr("y1", yScale(3.1))
+    .attr("y2", yScale(-3.1))
     .style("stroke", "none")
     .style("stroke-width", 16)
     .attr("id", "band6");
