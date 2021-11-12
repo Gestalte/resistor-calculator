@@ -3,4 +3,4 @@ Web app that calculates the resistance provided by a resistor based on the colou
 
 Go [here](https://gestalte.github.io/resistor-calculator/) to try it out.
 
-![resistor-calculator](/resistor.png)
+![resistor-calculator](https://github.com/Gestalte/resistor-calculator/blob/master/resistor.PNG?raw=true)
