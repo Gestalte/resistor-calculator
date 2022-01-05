@@ -1,3 +1,86 @@
+line {
+    stroke:none;
+    stroke-width: 16px;
+}
+
+.c-none{
+    background: none;
+    stroke: none;
+    color:black;
+}
+
+.c-black{
+    background: black;
+    stroke: black;
+    color:white;
+}
+
+.c-brown{
+    background: brown;
+    stroke: brown;
+    color:white;
+}
+
+.c-red{
+    background: red;
+    stroke: red;
+    color:white;
+}
+
+.c-orange{
+    background: orange;
+    stroke: orange;
+    color: black;
+}
+
+.c-yellow{
+    background: yellow;
+    stroke: yellow;
+    color: black;
+}
+
+.c-green{
+    background: green;
+    stroke: green;
+    color:white;
+}
+
+.c-blue{
+    background: blue;
+    stroke: blue;
+    color:white;
+}
+
+.c-violet{
+    background: violet;
+    stroke: violet;
+    color: black;
+}
+
+.c-grey {
+    background: gray;
+    stroke: gray;
+    color:white;
+}
+
+.c-white{
+    background: white;
+    stroke: white;
+    color: black;
+}
+
+.c-gold{
+    background: gold;
+    stroke: gold;
+    color: black;
+}
+
+.c-silver{
+    background: silver;
+    stroke: silver;
+    color: black;    
+}
+
 path.domain {
     stroke: none;
 }

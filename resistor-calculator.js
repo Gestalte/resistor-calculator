@@ -51,61 +51,62 @@ function NumberOfBandSelection() {
 }
 
 var bandColors = [
-    ["none", "black"],
-    ["black", "white"],
-    ["brown", "white"],
-    ["red", "white"],
-    ["orange", "black"],
-    ["yellow", "black"],
-    ["green", "white"],
-    ["blue", "white"],
-    ["violet", "black"],
-    ["gray", "white"],
-    ["white", "black"],
+    "c-none",
+    "c-black",
+    "c-brown",
+    "c-red",
+    "c-orange",
+    "c-yellow",
+    "c-green",
+    "c-blue",
+    "c-violet",
+    "c-grey",
+    "c-white",
 ];
 
 var multiplierColors = [
-    ["none", "black"],
-    ["black", "white"],
-    ["brown", "white"],
-    ["red", "white"],
-    ["orange", "black"],
-    ["yellow", "black"],
-    ["green", "white"],
-    ["blue", "white"],
-    ["violet", "black"],
-    ["grey", "white"],
-    ["white", "black"],
-    ["gold", "black"],
-    ["silver", "black"],
+    "c-none",
+    "c-black",
+    "c-brown",
+    "c-red",
+    "c-orange",
+    "c-yellow",
+    "c-green",
+    "c-blue",
+    "c-violet",
+    "c-grey",
+    "c-white",
+    "c-gold",
+    "c-silver",
 ];
 
 var toleranceColors = [
-    ["none", "black"],
-    ["brown", "white"],
-    ["red", "white"],
-    ["green", "white"],
-    ["blue", "white"],
-    ["violet", "black"],
-    ["grey", "white"],
-    ["gold", "black"],
-    ["silver", "black"],
+    "c-none",
+    "c-brown",
+    "c-red",
+    "c-green",
+    "c-blue",
+    "c-violet",
+    "c-grey",
+    "c-gold",
+    "c-silver",
 ];
 
 var tempCoColors = [
-    ["none", "black"],
-    ["brown", "white"],
-    ["red", "white"],
-    ["orange", "black"],
-    ["yellow", "black"],
-    ["blue", "white"],
-    ["violet", "black"],
+    "c-none",
+    "c-brown",
+    "c-red",
+    "c-orange",
+    "c-yellow",
+    "c-blue",
+    "c-violet",
 ];
 
 function HandleSelection(colors, dropDownId, bandId) {
     var index = document.getElementById(dropDownId).selectedIndex;
-    d3.select("#" + dropDownId).style('background', colors[index][0]).style('color', colors[index][1]);
-    d3.select("#" + bandId).style("stroke", colors[index][0]);
+
+    d3.select("#" + dropDownId).attr("class",colors[index]);
+    d3.select("#" + bandId).attr("class",colors[index]); 
 }
 
 function selectBand1() {
@@ -183,8 +184,6 @@ d3.select("svg")
     .attr("x2", xScale(3) + 8)
     .attr("y1", yScale(3.1))
     .attr("y2", yScale(-3.1))
-    .style("stroke", "none")
-    .style("stroke-width", 16)
     .attr("id", "band1")
     .attr("z-index", 1);
 
@@ -195,8 +194,6 @@ d3.select("svg")
     .attr("x2", xScale(7) + 8)
     .attr("y1", yScale(1.95))
     .attr("y2", yScale(-1.95))
-    .style("stroke", "none")
-    .style("stroke-width", 16)
     .attr("id", "band2")
     .attr("z-index", 1);
 
@@ -207,8 +204,6 @@ d3.select("svg")
     .attr("x2", xScale(9) + 8)
     .attr("y1", yScale(1.9))
     .attr("y2", yScale(-1.9))
-    .style("stroke", "none")
-    .style("stroke-width", 16)
     .attr("id", "band3")
     .attr("z-index", 1);
 
@@ -219,8 +214,6 @@ d3.select("svg")
     .attr("x2", xScale(11) + 8)
     .attr("y1", yScale(1.9))
     .attr("y2", yScale(-1.9))
-    .style("stroke", "none")
-    .style("stroke-width", 16)
     .attr("id", "band4")
     .attr("z-index", 1);
 
@@ -231,8 +224,6 @@ d3.select("svg")
     .attr("x2", xScale(14) + 8)
     .attr("y1", yScale(2.3))
     .attr("y2", yScale(-2.3))
-    .style("stroke", "none")
-    .style("stroke-width", 16)
     .attr("id", "band5")
     .attr("z-index", 1);
 
@@ -243,8 +234,6 @@ d3.select("svg")
     .attr("x2", xScale(18) + 8)
     .attr("y1", yScale(3.1))
     .attr("y2", yScale(-3.1))
-    .style("stroke", "none")
-    .style("stroke-width", 16)
     .attr("id", "band6")
     .attr("z-index", 1);
 
