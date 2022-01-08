@@ -3,82 +3,77 @@ line {
     stroke-width: 16px;
 }
 
-.c-none{
-    background: none;
-    stroke: none;
+[class*="cb-"] {
     color:black;
 }
 
-.c-black{
+[class*="cw-"] {
+    color:white;
+}
+
+.cb-none{
+    background: none;
+    stroke: none;
+}
+
+.cw-black{
     background: black;
     stroke: black;
-    color:white;
 }
 
-.c-brown{
+.cw-brown{
     background: brown;
     stroke: brown;
-    color:white;
 }
 
-.c-red{
+.cw-red{
     background: red;
     stroke: red;
-    color:white;
 }
 
-.c-orange{
+.cb-orange{
     background: orange;
     stroke: orange;
-    color: black;
 }
 
-.c-yellow{
+.cb-yellow{
     background: yellow;
     stroke: yellow;
-    color: black;
 }
 
-.c-green{
+.cw-green{
     background: green;
     stroke: green;
-    color:white;
 }
 
-.c-blue{
+.cw-blue{
     background: blue;
     stroke: blue;
-    color:white;
 }
 
-.c-violet{
+.cb-violet{
     background: violet;
     stroke: violet;
-    color: black;
 }
 
-.c-grey {
+.cw-grey {
     background: gray;
     stroke: gray;
-    color:white;
 }
 
-.c-white{
+.cb-white{
     background: white;
     stroke: white;
-    color: black;
 }
 
-.c-gold{
+.cb-gold{
     background: gold;
     stroke: gold;
-    color: black;
 }
 
-.c-silver{
+.cb-silver{
     background: silver;
     stroke: silver;
-    color: black;    
 }
 
 path.domain {
