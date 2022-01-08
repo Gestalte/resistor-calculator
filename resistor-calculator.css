@@ -1,6 +1,21 @@
+:root {
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body * + * {
+    margin-top: 1.5em;
+}
+
 line {
     stroke:none;
-    stroke-width: 16px;
+    stroke-width: 1em;
 }
 
 [class*="cb-"] {
@@ -81,12 +96,14 @@ path.domain {
 }
 
 #infobox {
-    position: fixed;
-    left: 500px;
-    top: 50px;
+    float: left;
     z-index: 1;
     background: white;
-    border: 1px black solid;
+    border: 1px black solid;    
+    border-radius: .5em;
+    padding: 1em;
+    margin-top: 0;
+    margin-bottom: 1em;
 }
 
 tr {
@@ -95,4 +112,46 @@ tr {
 
 td.data {
     font-weight: 900;
+}
+
+svg {
+    float: left;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: .5em;
+    padding: .5em .5em 1em;
+}
+
+.clearfix::after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+.top-row {
+    width: 100%;
+}
+
+header {
+    padding: 1em 1.5em;
+    color: #fff;
+    background-color: #0072b0;
+    border-radius: .5em;
+    margin-bottom: 1.5em;
+}
+
+header > h1 {
+    text-align: center;
+}
+
+.dropdown-container {
+    margin-top: 0;
+}
+
+select {
+    border-radius: .4em;
 }

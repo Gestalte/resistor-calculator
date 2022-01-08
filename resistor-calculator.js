@@ -161,7 +161,7 @@ d3.select("svg")
     .attr("y1", yScale(0))
     .attr("y2", yScale(0))
     .style("stroke", "black")
-    .style("stroke-width", 16);
+    .style("stroke-width", "1em");
 
 var shapeArea = d3.area()
     .x(d => xScale(d.a))
@@ -325,7 +325,7 @@ function SetResultsDisplay() {
 }
 
 d3.text("infobox.html", data => {
-    d3.select("body").append("div").attr("id", "infobox").html(data);
+    d3.select("div.top-row").append("div").attr("id", "infobox").html(data);
 });
 
 resetDropDowns();
