@@ -100,7 +100,7 @@ path.domain {
     z-index: 1;
     background: white;
     border: 1px black solid;    
-    border-radius: .5em;
+    border-radius: .2em;
     padding: 1em;
     margin-top: 0;
     margin-bottom: 1em;
@@ -122,7 +122,7 @@ svg {
     max-width: 1080px;
     margin: 0 auto;
     border: 1px solid black;
-    border-radius: .5em;
+    border-radius: .2em;
     padding: .5em .5em 1em;
 }
 
@@ -140,7 +140,7 @@ header {
     padding: 1em 1.5em;
     color: #fff;
     background-color: #0072b0;
-    border-radius: .5em;
+    border-radius: .2em;
     margin-bottom: 1.5em;
 }
 
@@ -153,5 +153,8 @@ header > h1 {
 }
 
 select {
-    border-radius: .4em;
+    border-radius: .2em;
+    border: 1px solid black;
+    padding: 10px 30px 10px 10px;
+    outline: none;
 }
