@@ -48,6 +48,12 @@ function NumberOfBandSelection() {
             .attr("y1", yScale(1.95))
             .attr("y2", yScale(-1.95));
     }
+
+    if (number !== 6){
+        d3.select("#TempCoResult").attr("hidden", true);
+    }else{
+        d3.select("#TempCoResult").attr("hidden", null);
+    }
 }
 
 var bandColors = [
@@ -264,7 +270,6 @@ function resetDropDowns() {
     SelectTempCo();
 }
 
-
 function OhmUnits(amount) {
     var result = "";
 
@@ -326,6 +331,7 @@ function SetResultsDisplay() {
 
 d3.text("infobox.html", data => {
     d3.select("div.top-row").append("div").attr("id", "infobox").html(data);
+    d3.select("#TempCoResult").attr("hidden", true);
 });
 
 resetDropDowns();
